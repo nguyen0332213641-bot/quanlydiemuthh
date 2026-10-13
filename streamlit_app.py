@@ -119,7 +119,7 @@ html_code = """
                             <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-md" id="detailAvatar">A</div>
                             <div>
                                 <h3 id="detailName" class="text-lg font-bold text-blue-900 leading-tight">Tên Sinh Viên</h3>
-                                <p class="text-xs text-blue-600 font-medium">Sinh viên Kỹ thuật điên</p>
+                                <p class="text-xs text-blue-600 font-medium">Sinh viên Kỹ thuật điện</p>
                             </div>
                         </div>
                         
