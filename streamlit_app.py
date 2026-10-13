@@ -1,21 +1,27 @@
+import streamlit as st
+
+# Cấu hình giao diện trang web rộng rãi
+st.set_page_config(page_title="QUẢN LÝ ĐIỂM SINH VIÊN - UTH", layout="wide")
+
+# Đoạn mã HTML/CSS/JS hoàn chỉnh của bạn được đưa thẳng vào đây
+html_code = """
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QUẢN LÝ ĐIỂM SINH VIÊN - UTH</title>
-    <!-- Tailwind CSS cho giao diện -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chart.js cho biểu đồ -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
     
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Xám xanh nhạt */
+            background-color: #f0f4f8;
             color: #1e293b;
+            margin: 0;
+            padding: 1rem;
         }
         .uth-font {
             font-family: 'Merriweather', serif;
@@ -23,7 +29,6 @@
         .card-shadow {
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
         }
-        /* Custom scrollbar cho bảng */
         .table-wrapper::-webkit-scrollbar {
             height: 8px;
         }
@@ -36,13 +41,12 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col p-4 md:p-6 lg:p-8">
+<body class="min-h-screen flex flex-col">
 
     <div class="max-w-7xl mx-auto w-full space-y-6 flex-grow">
         
         <!-- Header & Logo -->
         <header class="bg-white rounded-2xl p-6 md:p-8 card-shadow flex flex-col md:flex-row items-center md:items-start justify-between gap-6 border-t-4 border-blue-800">
-            <!-- Logo UTH mô phỏng theo ảnh cung cấp -->
             <div class="flex flex-col items-center justify-center shrink-0">
                 <div class="text-5xl md:text-6xl font-black uth-font tracking-tight" style="color: #008080; text-shadow: 1px 1px 0 #f59e0b, -1px -1px 0 #f59e0b, 1px -1px 0 #f59e0b, -1px 1px 0 #f59e0b, 2px 2px 4px rgba(0,0,0,0.2);">
                     UTH
@@ -62,21 +66,17 @@
             </div>
         </header>
 
-        <!-- 2. Thống kê -->
+        <!-- Thống kê -->
         <section>
             <h2 class="text-lg font-bold text-slate-700 mb-3 flex items-center gap-2 uppercase tracking-wide">
-                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                 Thống kê tổng quan
             </h2>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="statsContainer">
-                <!-- Data will be injected here by JS -->
-            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="statsContainer"></div>
         </section>
 
-        <!-- 1. Bảng điểm chi tiết -->
+        <!-- Bảng điểm chi tiết -->
         <section class="bg-white rounded-2xl p-6 card-shadow border border-slate-100">
             <h2 class="text-lg font-bold text-slate-700 mb-4 flex items-center gap-2 uppercase tracking-wide">
-                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                 1. Bảng điểm chi tiết
             </h2>
             <div class="table-wrapper overflow-x-auto rounded-xl border border-slate-200">
@@ -92,18 +92,15 @@
                             <th class="p-3 border-b text-center font-semibold">Xếp loại</th>
                         </tr>
                     </thead>
-                    <tbody id="tableBody" class="divide-y divide-slate-100 text-sm">
-                        <!-- Data will be injected here by JS -->
-                    </tbody>
+                    <tbody id="tableBody" class="divide-y divide-slate-100 text-sm"></tbody>
                 </table>
             </div>
         </section>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <!-- 3. Tra cứu điểm sinh viên -->
+            <!-- Tra cứu sinh viên -->
             <section class="lg:col-span-1 bg-white rounded-2xl p-6 card-shadow border border-slate-100 flex flex-col">
                 <h2 class="text-lg font-bold text-slate-700 mb-4 flex items-center gap-2 uppercase tracking-wide">
-                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                     3. Tra cứu sinh viên
                 </h2>
                 
@@ -111,20 +108,15 @@
                     <label for="studentSelect" class="block text-sm font-medium text-slate-600 mb-1">Chọn hoặc tìm sinh viên:</label>
                     <select id="studentSelect" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 cursor-pointer outline-none">
                         <option value="" disabled selected>-- Chọn sinh viên --</option>
-                        <!-- Options injected by JS -->
                     </select>
                 </div>
 
-                <!-- Info Card -->
                 <div id="studentDetailCard" class="hidden flex-grow bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-5 border border-blue-100 relative overflow-hidden">
-                    <!-- Deco circle -->
                     <div class="absolute -right-6 -top-6 w-24 h-24 bg-blue-100 rounded-full opacity-50"></div>
                     
                     <div class="relative z-10">
                         <div class="flex items-center gap-3 mb-4 border-b border-blue-200 pb-3">
-                            <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-md" id="detailAvatar">
-                                A
-                            </div>
+                            <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-md" id="detailAvatar">A</div>
                             <div>
                                 <h3 id="detailName" class="text-lg font-bold text-blue-900 leading-tight">Tên Sinh Viên</h3>
                                 <p class="text-xs text-blue-600 font-medium">Sinh viên CNTT</p>
@@ -160,10 +152,9 @@
                 </div>
             </section>
 
-            <!-- 4. Biểu đồ cột -->
+            <!-- Biểu đồ cột -->
             <section class="lg:col-span-2 bg-white rounded-2xl p-6 card-shadow border border-slate-100">
                 <h2 class="text-lg font-bold text-slate-700 mb-4 flex items-center gap-2 uppercase tracking-wide">
-                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                     4. Biểu đồ cột: Điểm tổng kết
                 </h2>
                 <div class="w-full h-[320px] relative">
@@ -303,11 +294,6 @@
                 detailXL.className = `font-bold px-3 py-1 rounded-full text-xs border ${s.badgeClass}`;
                 
                 detailCard.classList.remove('hidden');
-                
-                detailCard.animate([
-                    { opacity: 0, transform: 'translateY(10px)' },
-                    { opacity: 1, transform: 'translateY(0)' }
-                ], { duration: 300, easing: 'ease-out' });
             }
         });
 
@@ -333,9 +319,6 @@
                     tooltip: {
                         backgroundColor: '#1e293b',
                         padding: 12,
-                        titleFont: { family: 'Inter', size: 14 },
-                        bodyFont: { family: 'Inter', size: 14, weight: 'bold' },
-                        displayColors: false,
                         callbacks: {
                             label: (context) => `Điểm: ${context.parsed.y}`
                         }
@@ -346,16 +329,18 @@
                         beginAtZero: true,
                         max: 10,
                         grid: { color: '#f1f5f9', drawBorder: false },
-                        ticks: { font: { family: 'Inter' }, stepSize: 2 }
+                        ticks: { stepSize: 2 }
                     },
                     x: {
                         grid: { display: false, drawBorder: false },
-                        ticks: { font: { family: 'Inter', weight: '500' } }
                     }
-                },
-                interaction: { intersect: false, mode: 'index' },
+                }
             }
         });
     </script>
 </body>
 </html>
+"""
+
+# Hiển thị lên web Streamlit với chiều cao thích hợp
+st.components.v1.html(html_code, height=1150, scrolling=True)
