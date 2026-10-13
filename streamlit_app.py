@@ -61,7 +61,7 @@ html_code = """
             <div class="flex-grow flex items-center md:justify-end text-center md:text-right w-full md:w-auto h-full">
                 <div>
                     <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-900 tracking-tight">QUẢN LÝ ĐIỂM SINH VIÊN</h1>
-                    <p class="text-slate-500 mt-2 font-medium">Khoa Công nghệ Thông tin - Học kỳ I (2026 - 2027)</p>
+                    <p class="text-slate-500 mt-2 font-medium">Trí tuệ nhân tạo và ứng dụng - Học kỳ I (2026 - 2027)</p>
                 </div>
             </div>
         </header>
