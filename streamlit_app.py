@@ -52,7 +52,7 @@ html_code = """
                     Hệ thống Phân tích & Quản lý Học tập
                 </div>
                 <h1 class="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">QUẢN LÝ ĐIỂM SINH VIÊN</h1>
-                <p class="text-slate-500 mt-1 text-sm font-medium">Khoa Công nghệ Thông tin - Học kỳ I (2026 - 2027)</p>
+                <p class="text-slate-500 mt-1 text-sm font-medium">Trí tuệ nhân tạo và ứng dụng - Học kỳ I (2026 - 2027)</p>
             </div>
         </header>
 
@@ -141,7 +141,7 @@ html_code = """
                                 <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-teal-500 text-white flex items-center justify-center font-bold text-base shadow-sm" id="detailAvatar">A</div>
                                 <div>
                                     <h3 id="detailName" class="text-base font-bold text-slate-900 leading-tight">Tên Sinh Viên</h3>
-                                    <p class="text-xs text-blue-600 font-medium">Khoa CNTT - UTH</p>
+                                    <p class="text-xs text-blue-600 font-medium">Kỹ thuật điện</p>
                                 </div>
                             </div>
                             
