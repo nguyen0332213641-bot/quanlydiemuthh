@@ -1,3 +1,9 @@
+import streamlit as st
+
+st.set_page_config(page_title="QUẢN LÝ ĐIỂM SINH VIÊN - UTH", layout="wide")
+
+html_code = """
+<!-- DÁN TOÀN BỘ MÃ HTML Ở TRÊN VÀO ĐÂY -->
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -513,4 +519,6 @@
         });
     </script>
 </body>
-</html>
+</html>"""
+
+st.components.v1.html(html_code, height=1350, scrolling=True)
