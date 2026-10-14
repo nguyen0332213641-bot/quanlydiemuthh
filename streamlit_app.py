@@ -248,7 +248,7 @@ html_code = """
             <div class="flex items-center gap-2 text-center md:text-left">
                 <span class="font-bold text-slate-700">© 2026 UTH Grade Manager System.</span>
                 <span class="hidden sm:inline text-slate-300">•</span>
-                <span>Bản quyền thuộc về Nguyễn NGọc Nguyên (UTH).</span>
+                <span>Bản quyền thuộc về Nguyễn Ngọc Nguyên (UTH).</span>
             </div>
             
             <div class="inline-flex items-center gap-3 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm text-slate-700">
