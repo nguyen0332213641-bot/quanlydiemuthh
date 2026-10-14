@@ -60,7 +60,7 @@ html_code = """
         <section>
             <div class="flex items-center justify-between mb-3">
                 <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Thống kê tổng quan</h2>
-                <span class="text-xs text-blue-600 font-semibold bg-blue-50 px-2.5 py-0.5 rounded-full">Sĩ số: 10 SV</span>
+                <span class="text-xs text-blue-600 font-semibold bg-blue-50 px-2.5 py-0.5 rounded-full">Sỉ số: 10 SV</span>
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="statsContainer"></div>
         </section>
