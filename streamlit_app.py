@@ -254,7 +254,7 @@ html_code = """
             <div class="inline-flex items-center gap-3 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm text-slate-700">
                 <span>Tác giả: <b class="text-slate-900 uppercase">Nguyễn Ngọc Nguyên</b></span>
                 <span class="text-slate-300">|</span>
-                <span>MSSV: <b class="text-slate-900 font-mono">060208009198</b></span>
+                <span>MSSV: <b class="text-slate-900 uth-font">060208009198</b></span>
             </div>
 
             <div class="text-slate-400 font-medium">
